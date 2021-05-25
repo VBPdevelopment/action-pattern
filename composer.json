@@ -1,0 +1,34 @@
+{
+  "name": "vertaalbureau-perfect/action-pattern",
+  "description": "Action for small code bits, usable in laravel",
+  "minimum-stability": "stable",
+  "keywords": ["Laravel", "Action", "Actions", "Action pattern"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Sjors van Leeuwen",
+      "email": "s.vanleeuwen@vertaalbureau-perfect.nl"
+    },
+    {
+      "name": "Wouter Wessendorp",
+      "email": "w.wessendorp@vertaalbureau-perfect.nl"
+    }
+  ],
+  "require": {
+    "php": ">=7.4|8.0",
+    "illuminate/container": "^8.0|9.*",
+    "illuminate/console": "^8.0|9.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "VertaalbureauPerfect\\ActionPattern\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "VertaalbureauPerfect\\ActionPattern\\ServiceProvider"
+      ]
+    }
+  }
+}

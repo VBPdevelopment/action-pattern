@@ -1,0 +1,15 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use VertaalbureauPerfect\ActionPattern\AbstractAction;
+
+class {{class}} extends AbstractAction
+{
+    public function handle()
+    {
+        //
+    }
+}
