@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace VertaalbureauPerfect\ActionPattern;
 
 use Illuminate\Container\Container;
+use PHPUnit\Framework\Assert;
 
 abstract class AbstractAction
 {
@@ -35,14 +36,14 @@ abstract class AbstractAction
         ], $parameters);
     }
 
-    public static function isExecuted(): bool
+    public static function assertExecuted(): bool
     {
-        return self::$times_fake_executed > 0;
+        Assert::assertGreaterThan(0, self::$times_fake_executed, class_basename(static::class) . 'Action not executed');
     }
 
-    public static function isExecutedExactly(int $times): bool
+    public static function assertExecutedExactly(int $times): bool
     {
-        return $times === self::$times_fake_executed;
+        Assert::assertEquals($times, self::$times_fake_executed, class_basename(static::class) . 'Action not executed '. $times . ' times, but ' . self::$times_fake_executed);
     }
 
 }
