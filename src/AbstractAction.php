@@ -10,8 +10,6 @@ use PHPUnit\Framework\Assert;
 abstract class AbstractAction
 {
 
-    protected static int $times_fake_executed = 0;
-
     protected static $fake;
 
     final public static function fake($returnValue = null)
@@ -26,10 +24,6 @@ abstract class AbstractAction
 
     final public static function execute(...$parameters)
     {
-        if (static::$fake) {
-            static::$times_fake_executed++;
-        }
-
         return call_user_func_array([
             resolve(static::class),
             'handle'
@@ -38,12 +32,12 @@ abstract class AbstractAction
 
     public static function assertExecuted(): void
     {
-        Assert::assertGreaterThan(0, static::$times_fake_executed, class_basename(static::class) . 'Action not executed');
+        Assert::assertGreaterThan(0, static::$fake->getTimesExecuted(), class_basename(static::class) . 'Action not executed');
     }
 
     public static function assertExecutedExactly(int $times): void
     {
-        Assert::assertEquals($times, static::$times_fake_executed, class_basename(static::class) . 'Action not executed '. $times . ' times, but ' . self::$times_fake_executed);
+        Assert::assertEquals($times, static::$fake->getTimesExecuted(), class_basename(static::class) . 'Action not executed '. $times . ' times, but ' . static::$fake->getTimesExecuted());
     }
 
 }
