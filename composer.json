@@ -16,9 +16,9 @@
   ],
   "require": {
     "php": ">=7.4|^8.0|^8.1",
-    "illuminate/container": "^8.0|9.*|^10.0",
-    "illuminate/console": "^8.0|9.*|^10.0",
-    "phpunit/phpunit": "^9.5.4"
+    "illuminate/container": "^8.0|^9.0|^v10.26.2",
+    "illuminate/console": "^8.0|9.*|^v10.26",
+    "phpunit/phpunit": "^9.5.4|^10.0"
   },
   "autoload": {
     "psr-4": {
